@@ -1,0 +1,19 @@
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab2\bin\Debug\Lab2.exe.config
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab2\bin\Debug\Lab2.exe
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab2\bin\Debug\Lab2.pdb
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab2\obj\Debug\Lab2.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab2\obj\Debug\Lab2.exe
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab2\obj\Debug\Lab2.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\IPZ_2pigr\Lab2\bin\Debug\Lab1.exe
+C:\Users\User\Documents\Visual Studio 2015\Projects\IPZ_2pigr\Lab2\bin\Debug\Lab1.pdb
+C:\Users\dilop\OneDrive\Рабочий стол\IPZ_2pigr\Lab2\obj\Debug\Lab2.csproj.SuggestedBindingRedirects.cache
+C:\Users\dilop\OneDrive\Рабочий стол\IPZ_2pigr\Lab2\obj\Debug\Lab2.csproj.CoreCompileInputs.cache
+C:\Users\dilop\OneDrive\Рабочий стол\IPZ_2pigr\Lab2\bin\Debug\Lab2.exe.config
+C:\Users\dilop\OneDrive\Рабочий стол\IPZ_2pigr\Lab2\bin\Debug\Lab2.exe
+C:\Users\dilop\OneDrive\Рабочий стол\IPZ_2pigr\Lab2\bin\Debug\Lab2.pdb
+C:\Users\dilop\OneDrive\Рабочий стол\IPZ_2pigr\Lab2\bin\Debug\Lab1.exe
+C:\Users\dilop\OneDrive\Рабочий стол\IPZ_2pigr\Lab2\bin\Debug\Lab1.pdb
+C:\Users\dilop\OneDrive\Рабочий стол\IPZ_2pigr\Lab2\bin\Debug\Lab1.exe.config
+C:\Users\dilop\OneDrive\Рабочий стол\IPZ_2pigr\Lab2\obj\Debug\Lab2.csproj.CopyComplete
+C:\Users\dilop\OneDrive\Рабочий стол\IPZ_2pigr\Lab2\obj\Debug\Lab2.exe
+C:\Users\dilop\OneDrive\Рабочий стол\IPZ_2pigr\Lab2\obj\Debug\Lab2.pdb

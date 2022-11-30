@@ -1,0 +1,6 @@
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab1\bin\Debug\Lab1.exe.config
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab1\bin\Debug\Lab1.exe
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab1\bin\Debug\Lab1.pdb
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab1\obj\Debug\Lab1.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab1\obj\Debug\Lab1.exe
+c:\users\user\documents\visual studio 2015\Projects\IPZ_2pigr\Lab1\obj\Debug\Lab1.pdb
