@@ -61,15 +61,20 @@ namespace Lab2
     {
         #region Properties
       public const string Name = "Barak Obama Studentovich";
-      public static int _age = 22;
-        string name;
+      public  int Age  { get { return age + 1; } set { age = value} }
+         string name;
         int age;
-
+        
         public Customer( string name, int age)
         {
             this.name = name;
             this.age = age;
-        }      
+        }
+        public Customer(string name)
+        {
+            this.name = name;
+            
+        }
         public void Deconstruct(out string personName,out int personAge)
         {
             personName = name;
@@ -211,6 +216,7 @@ namespace Lab2
             this._dollarRateBuy = dollarRateBuy;
             _euroRateSell = euroRateSell;
             _euroRateBuy = euroRateBuy;
+
 
         }
 
