@@ -27,6 +27,7 @@ namespace Program
     {
         public Customer(string name, int age) : base(name, age)
         {
+
         }
 
     }
