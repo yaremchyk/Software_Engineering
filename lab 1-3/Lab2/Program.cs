@@ -61,7 +61,7 @@ namespace Lab2
     {
         #region Properties
       public const string Name = "Barak Obama Studentovich";
-      public  int Age  { get { return age + 1; } set { age = value} }
+      public  int Age  { get { return age + 1; } set { age = value; } }
          string name;
         int age;
         
@@ -89,9 +89,9 @@ namespace Lab2
             float customerStartMoney;//початкові гроші клієнта
             double? customerResultMoney;//результуючі гроші клієнта
 
-            //string[] questions = new string[] {"Choose a punct:", "0. End of exchange", "1. Exchange grn to dollar",
-            //        "2. Exchange grn to euro", "3. Exchange dollar to grn", "4. Exchange euro to grn" };
-            //employee.Question1(questions);//питання 1
+            string[] questions = new string[] {"Choose a punct:", "0. End of exchange", "1. Exchange grn to dollar",
+                    "2. Exchange grn to euro", "3. Exchange dollar to grn", "4. Exchange euro to grn" };
+            employee.Question1(questions);//питання 1
             employee.Question1("Choose a punct:", "0. End of exchange", "1. Exchange grn to dollar",
                     "2. Exchange grn to euro", "3. Exchange dollar to grn", "4. Exchange euro to grn");//питання 1
             var punct = Convert.ToInt32(Console.ReadLine());
