@@ -270,6 +270,20 @@ namespace Program
     {
         public string[] items = new string[] {"Alpine flower", "Catfish teeth", "Cammel wool"};
 
+        public static void Alps_Quest()
+        {
+
+        }
+
+        public static void Norway_Quest()
+        {
+
+        }
+
+        public static void Sahara_Quest()
+        {
+
+        }
     }
     /*Ideas:
      * change program conception to adaptive reality tour agency
