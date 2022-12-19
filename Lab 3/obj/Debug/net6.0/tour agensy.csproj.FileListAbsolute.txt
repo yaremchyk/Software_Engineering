@@ -1,0 +1,15 @@
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\bin\Debug\net6.0\tour agensy.exe
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\bin\Debug\net6.0\tour agensy.deps.json
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\bin\Debug\net6.0\tour agensy.runtimeconfig.json
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\bin\Debug\net6.0\tour agensy.dll
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\bin\Debug\net6.0\tour agensy.pdb
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\obj\Debug\net6.0\tour agensy.csproj.AssemblyReference.cache
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\obj\Debug\net6.0\tour agensy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\obj\Debug\net6.0\tour agensy.AssemblyInfoInputs.cache
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\obj\Debug\net6.0\tour agensy.AssemblyInfo.cs
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\obj\Debug\net6.0\tour agensy.csproj.CoreCompileInputs.cache
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\obj\Debug\net6.0\tour agensy.dll
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\obj\Debug\net6.0\refint\tour agensy.dll
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\obj\Debug\net6.0\tour agensy.pdb
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\obj\Debug\net6.0\tour agensy.genruntimeconfig.cache
+C:\Users\Jora\Documents\GitHub\Softweare_Engineering\Lab 3\obj\Debug\net6.0\ref\tour agensy.dll

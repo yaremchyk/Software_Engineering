@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jora\\Documents\\GitHub\\Softweare_Engineering\\Lab 3\\Lab 3.csproj",
-      "projectName": "Lab 3",
-      "projectPath": "C:\\Users\\Jora\\Documents\\GitHub\\Softweare_Engineering\\Lab 3\\Lab 3.csproj",
+      "projectUniqueName": "C:\\Users\\Jora\\Documents\\GitHub\\Softweare_Engineering\\Lab 3\\tour agensy.csproj",
+      "projectName": "tour agensy",
+      "projectPath": "C:\\Users\\Jora\\Documents\\GitHub\\Softweare_Engineering\\Lab 3\\tour agensy.csproj",
       "packagesPath": "C:\\Users\\Jora\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Jora\\Documents\\GitHub\\Softweare_Engineering\\Lab 3\\obj\\",
       "projectStyle": "PackageReference",
