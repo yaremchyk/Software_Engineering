@@ -16,6 +16,7 @@ namespace Program
             Customer person = new Customer("John Balboa", 22);
             Manager manager = new Manager("Micky Green", 31);
             Assistant assistant = new Assistant("Max Troy", 21);
+            #endregion
 
             #region Methods
 
@@ -69,6 +70,8 @@ namespace Program
             }
             while (true);
         }
+        #endregion
+
     }
     public abstract class Person
     {
@@ -76,6 +79,7 @@ namespace Program
 
         public string _name;
         public int _age;
+        #endregion
 
         #region Methods
 
@@ -84,10 +88,12 @@ namespace Program
             this._name = name;
             this._age = age;
         }
+        #endregion
+
     }
     public class Customer : Person
     {
-        #region Methods
+        #region Properties
 
 
         public static object[,] mytickets = new object[,]
@@ -98,6 +104,7 @@ namespace Program
 
         };
         public static int[] TicketsCount { get; set; } = new int[mytickets.GetUpperBound(0) + 1];
+        #endregion
 
         #region Methods
 
@@ -116,6 +123,8 @@ namespace Program
             }
             return "false";
         }
+        #endregion
+
     }
     public class Computer
     {
@@ -129,6 +138,7 @@ namespace Program
             { "Sahara desert", "14.12.2022", "350" }
 
         };
+        #endregion
 
         #region Methods
 
@@ -242,7 +252,8 @@ namespace Program
             Console.WriteLine("Our agensy is cool");
 
         }
-        
+        #endregion
+
     }
     public class Manager : Person
     {
@@ -251,6 +262,8 @@ namespace Program
         public string[] questions = new string[] {"\nChoose a punct:", "0. View current tours", "1. Buy tickets",
                     "2. My tickets", "3. Change manager", "4. Choose assistant", "5. My money and items", "6. Enter quest", "7. About our agency" };
         public string[] phrases = new string[] {"Here is our current tours: \n", "You can buy tickets for this tours: \n", "Here is your tickets: \n", "Ok, i will ask another manager.\n", "Here is your assistant: \n", "", "About our agency: \n", "", "", "" };
+        #endregion
+
 
         #region Methods
 
@@ -275,11 +288,13 @@ namespace Program
 
             }
         }
+        #endregion
 
     }
     public class Assistant : Person
     {
         #region Properties
+        #endregion
 
         #region Methods
 
@@ -333,13 +348,19 @@ namespace Program
 
             }
         }
+        #endregion
+
     }
     public class Bag
     {
         #region Properties
+        #endregion
+
         public class Money
         {
-        public static int _count = 500;
+            #region Properties
+            public static int _count = 500;
+            #endregion
 
             #region Methods
 
@@ -352,6 +373,8 @@ namespace Program
                 Bag.Money._count = Bag.Money._count - amount;
 
             }
+            #endregion
+
 
         }
 
@@ -359,7 +382,10 @@ namespace Program
         {
             #region Properties
             public static string[] items = new string[] {"", "", "" };
+
             public static int[] ItemsCount { get; set; } = new int[items.GetUpperBound(0) + 1];
+            #endregion
+
 
             #region Methods
 
@@ -383,10 +409,15 @@ namespace Program
         {
             Console.WriteLine("Your money: " + Bag.Money._count + "$");
         }
+        #endregion
+
     }
     public class AR
     {
         #region Properties
+
+        #endregion
+
 
         #region Methods
         public static void Brightness()
@@ -422,13 +453,17 @@ namespace Program
             if (a > 50 && a < 99) { AR.Volume(); };
 
         }
+        #endregion
+
     }
     public class Quest
     {
-            #region Properties
+        #region Properties
         public static string[] items = new string[] {"Alpine flower", "Catfish teeth", "Cammel wool"};
+        #endregion
 
-            #region Methods
+
+        #region Methods
         public static void Alps_Quest()
         {
             Bag.Items.AddItem(0);
@@ -453,6 +488,7 @@ namespace Program
             AR.AREvent();
             Console.WriteLine("Quest done, you received: " + Quest.items[2] + " and 450$");
         }
+        #endregion
     }
     /*Ideas:
      * change program conception to adaptive reality tour agency
