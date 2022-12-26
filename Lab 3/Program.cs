@@ -160,11 +160,12 @@ namespace Program
         public static void buyTickets(ref Manager manager , int menu_punct)
         {
             Computer.ViewTours(ref manager, menu_punct);
-            Console.WriteLine("Choose tour, you want to buy tickets to.");
-            var punct = Convert.ToInt32(Console.ReadLine());
-            manager.Talk(ref manager, menu_punct);
-            menu_punct = 8;
             
+                manager.Talk(ref manager, menu_punct);
+            
+            menu_punct = 19;
+            var punct = Convert.ToInt32(Console.ReadLine());
+
             switch (punct)
             {
                 case 0:
