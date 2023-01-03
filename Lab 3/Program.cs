@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Program
 {
@@ -16,6 +17,7 @@ namespace Program
             Customer person = new Customer("John Balboa", 22);
             Manager manager = new Manager("Micky Green", 31);
             Assistant assistant = new Assistant("Max Troy", 21);
+
             #endregion
 
             #region Methods
@@ -56,8 +58,9 @@ namespace Program
                         Computer.AboutAgency(ref manager, menu_punct);
                         break;
                     case 8:
-                        manager.Talk(ref manager, menu_punct);
-                        break;
+                        Adapter.Talk("hi");
+/*                        var adapter = new Adapter();
+*/                        break;
                     case 10:
                         System.Environment.Exit(-1);
                         break;
@@ -90,6 +93,22 @@ namespace Program
         }
         #endregion
 
+    }
+    sealed class Singleton
+    {
+        private static Singleton _name;
+
+        private Singleton()
+        {
+            
+        }
+
+        public static Singleton getInstance()
+        {
+            if (_name == null)
+                _name = new Singleton();
+            return _name;
+        }
     }
     public class Customer : Person
     {
@@ -256,15 +275,39 @@ namespace Program
         #endregion
 
     }
+    public class Adapter : Person //adapter pattern
+    {
+        Manager _adapter;  
+        public Adapter(Manager manager) : base(manager._name, manager._age)
+        {
+
+        }
+        public void Talk(string text)
+        {
+            Manager.phrases[10] = text;
+            _adapter.Talk(10);
+            Manager.phrases[10] = "";
+
+        }
+    }
+
+    interface ISay
+    {
+        void Say()
+        {
+            
+        }
+
+    }
+
     public class Manager : Person
     {
         #region Properties
 
         public string[] questions = new string[] {"\nChoose a punct:", "0. View current tours", "1. Buy tickets",
                     "2. My tickets", "3. Change manager", "4. Choose assistant", "5. My money and items", "6. Enter quest", "7. About our agency" };
-        public string[] phrases = new string[] {"Here is our current tours: \n", "You can buy tickets for this tours: \n", "Here is your tickets: \n", "Ok, i will ask another manager.\n", "Here is your assistant: \n", "", "About our agency: \n", "", "", "" };
+        public static string[] phrases = new string[] {"Here is our current tours: \n", "You can buy tickets for this tours: \n", "Here is your tickets: \n", "Ok, i will ask another manager.\n", "Here is your assistant: \n", "", "About our agency: \n", "", "", "10" };
         #endregion
-
 
         #region Methods
 
@@ -282,10 +325,10 @@ namespace Program
         }
         public void Talk(ref Manager manager, int punct)
         {
-            Console.WriteLine(manager._name + ":\n" + phrases[punct]);
+            Console.WriteLine(_name + ":\n" + phrases[punct]);
             if(punct == 10)
             {
-                Console.WriteLine(manager._name + ":\n");
+                Console.WriteLine(_name + ":\n");
 
             }
         }
@@ -303,44 +346,44 @@ namespace Program
         {
 
         }
-        public static void AssistantTalk(ref Assistant assistant, string text)
+        public void AssistantTalk(string text)
         {
-            Console.WriteLine("\n" + assistant._name + ": \n" + text + "\n");
+            Console.WriteLine("\n" + _name + ": \n" + text + "\n");
         }
         public void PickQuest(ref Assistant assistant)
         {
-            AssistantTalk(ref assistant,"Pick quest: \n0.Alps \n1.Norway \n2.Sahara desert");
+            AssistantTalk("Pick quest: \n0.Alps \n1.Norway \n2.Sahara desert");
             var punct = Convert.ToInt32(Console.ReadLine());
             switch (punct)
             {
                 case 0:
-                    AssistantTalk(ref assistant, "Want to start quest");
+                    AssistantTalk("Want to start quest?");
                     
                     if (Customer.CheckForTicket("Alps") == "true")
                     {
-                        AssistantTalk(ref assistant, "Before we start, I want to show you that you can adjust the brightness and volume of your AR.");
+                        AssistantTalk("Before we start, I want to show you that you can adjust the brightness and volume of your AR.");
                         Quest.Alps_Quest();
                     }
-                    else { AssistantTalk(ref assistant, "You don't have tickets for this quest, or something went wrong"); }  
+                    else { AssistantTalk("You don't have tickets for this quest, or something went wrong"); }  
                     break;
                 case 1:
-                    AssistantTalk(ref assistant, "Before we start, I want to show you that you can adjust the brightness and volume of your AR.");
+                    AssistantTalk("Before we start, I want to show you that you can adjust the brightness and volume of your AR.");
 
                     if (Customer.CheckForTicket("Norway") == "true")
                     {
                         Quest.Norway_Quest();
                     }
-                    else { AssistantTalk(ref assistant, "You don't have tickets for this quest, or something went wrong"); }
+                    else { AssistantTalk("You don't have tickets for this quest, or something went wrong"); }
 
                     break;
                 case 2:
-                    AssistantTalk(ref assistant, "Before we start, I want to show you that you can adjust the brightness and volume of your AR.");
+                    AssistantTalk("Before we start, I want to show you that you can adjust the brightness and volume of your AR.");
 
                     if (Customer.CheckForTicket("Sahara desert") == "true")
                     {
                         Quest.Sahara_Quest();
                     }
-                    else { AssistantTalk(ref assistant, "You don't have tickets for this quest, or something went wrong"); }
+                    else { AssistantTalk("You don't have tickets for this quest, or something went wrong"); }
 
                     break;
                 default:
@@ -421,7 +464,7 @@ namespace Program
 
 
         #region Methods
-        public static void Brightness()
+        public static void FixBrightness()
         {
             Console.WriteLine("Something went wrong with your AR set. You can't see anything. \n 0.Fix brightness ");
             var punct = Convert.ToInt32(Console.ReadLine());
@@ -432,7 +475,7 @@ namespace Program
                 break;
             }
         }
-        public static void Volume()
+        public static void FixVolume()
         {
             Console.WriteLine("Something went wrong with your AR set. You can't see anything. \n0.Fix volume ");
             var punct = Convert.ToInt32(Console.ReadLine());
@@ -449,9 +492,9 @@ namespace Program
             int a;
             a = random.Next(100);
 
-            if(a<50) { AR.Brightness(); };
+            if(a<50) {AR.FixBrightness(); };
             
-            if (a > 50 && a < 99) { AR.Volume(); };
+            if (a > 50 && a < 99) { AR.FixVolume(); };
 
         }
         #endregion
@@ -491,6 +534,7 @@ namespace Program
         }
         #endregion
     }
+    
     /*Ideas:
      * change program conception to adaptive reality tour agency
      * add each country own class(Jamaica, Vienna, Changhai), where all quests contains
@@ -499,6 +543,6 @@ namespace Program
      * create a bag, where you can see your collected items from tours
      the game will be finished, when all items are collected 
      add assistante class an hiwm function
-     add apartive reality system 
+     add adapative reality system 
     */
 }
