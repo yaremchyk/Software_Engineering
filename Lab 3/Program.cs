@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -58,9 +59,25 @@ namespace Program
                         Computer.AboutAgency(ref manager, menu_punct);
                         break;
                     case 8:
-                        Adapter.Talk("hi");
+                        Quest.QuestProcess();
+                        /*Adapter.Talk();*/
 /*                        var adapter = new Adapter();
 */                        break;
+                    case 9:
+
+                        var boxFight = new BoxFight();
+                        IObserver riskyPlayer = new RiskyPlayer();
+                        IObserver conservativePlayer = new ConservativePlayer();
+                        boxFight.AttachObserver(riskyPlayer);
+                        boxFight.AttachObserver(conservativePlayer);
+                        Console.WriteLine("-A- \t -B-");
+                        do
+                        {
+                            boxFight.NextRound();
+                        }
+                        while (boxFight.RoundNumber < 12);
+                        break;
+                        
                     case 10:
                         System.Environment.Exit(-1);
                         break;
@@ -275,9 +292,9 @@ namespace Program
         #endregion
 
     }
-    public class Adapter : Person //adapter pattern
+    /*public class Adapter : Person //adapter pattern
     {
-        Manager _adapter;  
+        Manager _adapter;
         public Adapter(Manager manager) : base(manager._name, manager._age)
         {
 
@@ -285,11 +302,11 @@ namespace Program
         public void Talk(string text)
         {
             Manager.phrases[10] = text;
-            _adapter.Talk(10);
+            _adapter.Talk(ref Manager _adapter, 10);
             Manager.phrases[10] = "";
 
         }
-    }
+    }*/
 
     interface ISay
     {
@@ -504,6 +521,13 @@ namespace Program
     {
         #region Properties
         public static string[] items = new string[] {"Alpine flower", "Catfish teeth", "Cammel wool"};
+        public int RoundNumber { get; private set; }
+        private Random _random = new Random();
+        public static int PlayerAScore { get; set; }
+        public static int PlayerBScore { get; set; }
+        public static string Winner = "null";
+        
+
         #endregion
 
 
@@ -530,11 +554,138 @@ namespace Program
             Bag.Items.AddItem(2);
             Bag.Money.MoneyPlus(450);
             AR.AREvent();
-            Console.WriteLine("Quest done, you received: " + Quest.items[2] + " and 450$");
+            QuestProcess();
+            if(Winner == "Player")
+            {
+                Console.WriteLine("Quest done, you received: " + Quest.items[2] + " and 450$");
+
+            }
+            else { Console.WriteLine("You lost, try again"); }
         }
+        public void NextRound()
+        {
+            RoundNumber++;
+            PlayerAScore += _random.Next(0, 5);
+            PlayerBScore += _random.Next(0, 5);
+            Console.WriteLine(PlayerAScore + " \t \t" + PlayerBScore);
+            
+        }
+        public static void QuestProcess()
+        {
+            var boxFight = new Quest();
+            Console.WriteLine("-Player- \t -Boss-");
+            do
+            {
+                boxFight.NextRound();
+            }
+            while (boxFight.RoundNumber < 12);
+            if (PlayerAScore > PlayerBScore)
+            {
+                Winner = "Player";
+                Console.WriteLine("Winner: " + Winner);
+            }
+            else
+            {
+                Winner = "Boss";
+                Console.WriteLine("Winner: " + Winner);
+            }
+        }
+        
+        
+
         #endregion
     }
-    
+    class Player
+    {
+        public string BoxerToPutMoneyOn { get; set; }
+        public void Update(BoxFight subject)
+        {
+            var boxFight = subject;
+            if (boxFight.BoxerAScore > boxFight.BoxerBScore)
+                BoxerToPutMoneyOn = "I put on boxer A";
+            else
+            {
+                BoxerToPutMoneyOn = "I put on boxer B";
+                Console.WriteLine($"PLAYER:{BoxerToPutMoneyOn}");
+            }
+                
+        }
+
+    }
+    class BoxFight
+    {
+        public int RoundNumber { get; private set; }
+        private Random _random = new Random();
+        public int BoxerAScore { get; set; }
+        public int BoxerBScore { get; set; }
+        IObserver[] _observer = new IObserver[2000];
+        int _observerCounter;
+        public void AttachObserver(IObserver observer)
+        {
+            _observer[_observerCounter] = observer;
+            ++_observerCounter;
+        }
+        public void NextRound()
+        {
+            RoundNumber++;
+            BoxerAScore += _random.Next(0, 5);
+            BoxerBScore += _random.Next(0, 5);
+            Console.WriteLine(BoxerAScore + " \t " +
+            BoxerBScore);
+            Notify();
+        }
+        public void Notify()
+        {
+            for (int i = 0; i < _observerCounter; ++i)
+            {
+                _observer[i].Update(this);
+            }
+        }
+    }
+    interface IObserver
+    {
+        void Update(BoxFight subject);
+
+    }
+
+    class RiskyPlayer : IObserver
+    {
+        public string BoxerToPutMoneyOn { get; set; }
+        public void Update(BoxFight subject)
+        {
+            var boxFight = subject;
+            if (boxFight.BoxerAScore > boxFight.BoxerBScore)
+            {
+                BoxerToPutMoneyOn = "I put on boxer B, if he win I get more!";
+            }
+            else {
+                BoxerToPutMoneyOn = "I put on boxer A, if he win I get more!";
+                Console.WriteLine("RISKYPLAYER:{0}", BoxerToPutMoneyOn);
+            }
+                
+        }
+    }
+
+    class ConservativePlayer : IObserver
+    {
+        public string BoxerToPutMoneyOn { get; set; }
+        public void Update(BoxFight subject)
+        {
+            var boxFight = subject;
+            if (boxFight.BoxerAScore < boxFight.BoxerBScore)
+            {
+                BoxerToPutMoneyOn = "I put on boxer B, better be safe!";
+            }
+            else
+            {
+                BoxerToPutMoneyOn = "I put on boxer A, better be safe!";
+                Console.WriteLine("CONSERVATIVEPLAYER:{0}", BoxerToPutMoneyOn);
+            }
+                
+        }
+
+    }
+
     /*Ideas:
      * change program conception to adaptive reality tour agency
      * add each country own class(Jamaica, Vienna, Changhai), where all quests contains
